@@ -84,7 +84,12 @@ const Home: NextPage = () => {
 
     setLoading(false);
   };
-
+  function onKeyDown(event){
+    if ((event.ctrlKey || event.metaKey) && (event.keyCode == 13 || event.keyCode == 10)) {
+      generateChat(event);
+    }
+  }
+  
   return (
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
@@ -146,6 +151,7 @@ const Home: NextPage = () => {
             value={chat}
             onChange={(e) => setChat(e.target.value)}
             rows={4}
+            onKeyDown={onKeyDown}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-2"
             placeholder={
               t('placeholder')

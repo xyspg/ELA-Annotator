@@ -27,7 +27,7 @@ export default function Footer() {
         <Link
             target='_blank'
             rel='noopener noreferrer'
-          href="https://github.com/xyspg/gpt-ocr"
+          href="https://github.com/xyspg/ELA-Annotator"
           className="group"
           aria-label="TaxPal on GitHub"
         >
