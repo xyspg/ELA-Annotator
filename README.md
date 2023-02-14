@@ -1,9 +1,9 @@
-# [Weekly Report](https://weeklyreport.avemaria.fun/)
 
+# [ELA Annotator](https://ela-annotator.vercel.app/)
 
-This project generate weekly report with simple sentence for you using AI.
+This project was modified from [Weekly Report](https://weeklyreport.avemaria.fun/).
 
-[![Weekly Report](./public/screenshot.jpg)](https://weeklyreport.avemaria.fun/zh)
+![Weekly Report](./public/screenshot.png)
 
 ## How it works
 
@@ -32,6 +32,6 @@ OPENAI_MODEL = text-davinci-003
 
 ## Credits
 
-Inspired by [TwtterBio](https://github.com/Nutlope/twitterbio) and [zhengbangbo](https://github.com/zhengbangbo/chat-simplifier).
+Inspired by [guaguaguaxia](https://github.com/guaguaguaxia).
 
 
