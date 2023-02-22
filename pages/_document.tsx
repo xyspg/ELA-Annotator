@@ -8,28 +8,14 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Simplify your chat content in seconds."
+            content="Annotate your passage in seconds."
           />
-          <meta property="og:site_name" content="Chat Simplifier" />
+          <meta property="og:site_name" content="ELA Annotator" />
           <meta
             property="og:description"
-            content="Simplify your chat content in seconds."
+            content="Annotate your passage in seconds."
           />
-          <meta property="og:title" content="Chat Simplifier" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Chat Simplifier" />
-          <meta
-            name="twitter:description"
-            content="Simplify your chat content in seconds."
-          />
-          <meta
-            property="og:image"
-            content="https://chat-simplifier.vercel.app/og-image.png"
-          />
-          <meta
-            name="twitter:image"
-            content="https://chat-simplifier.vercel.app/og-image.png"
-          />
+          <meta property="og:title" content="ELA Annotator" />
         </Head>
         <body>
           <Main />

@@ -151,6 +151,7 @@ const Home: NextPage = () => {
             value={chat}
             onChange={(e) => setChat(e.target.value)}
             rows={4}
+            maxLength={10000}
             onKeyDown={onKeyDown}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-2"
             placeholder={
