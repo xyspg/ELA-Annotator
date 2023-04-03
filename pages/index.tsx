@@ -86,7 +86,8 @@ const Home: NextPage = () => {
   };
   function onKeyDown(event){
     if ((event.ctrlKey || event.metaKey) && (event.keyCode == 13 || event.keyCode == 10)) {
-      generateChat(event);
+      // generateChat(event);
+      window.alert('OpenAI 提供的 API 额度已过期，本站从今日起不限期暂停服务')
     }
   }
   
@@ -162,7 +163,10 @@ const Home: NextPage = () => {
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-5 mt-8 hover:bg-black/80 w-full"
-              onClick={(e) => generateChat(e)}
+              // onClick={(e) => generateChat(e)}
+              onClick={() => {
+                window.alert('OpenAI 提供的 API 额度已过期，本站从今日起不限期暂停服务');
+              }}
             >
               {t('simplifierButton')} &rarr;
             </button>
