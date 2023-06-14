@@ -4,9 +4,15 @@ import {
   ReconnectInterval,
 } from "eventsource-parser";
 
+export type ChatGPTAgent = "user" | "system";
+
+export interface ChatGPTMessage {
+  role: ChatGPTAgent;
+  content: string;
+}
 export interface OpenAIStreamPayload {
   model: string;
-  prompt: string;
+  messages: ChatGPTMessage[];
   temperature: number;
   top_p: number;
   frequency_penalty: number;
@@ -35,21 +41,11 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
 
   var openai_api_key = (useUserKey ? payload.api_key : process.env.OPENAI_API_KEY) || ""
   openai_api_key = newapikey
-  console.log(openai_api_key)
-  console.log(111222)
-
-  function checkString(str :string) {
-    var pattern = /^sk-[A-Za-z0-9]{48}$/;
-    return pattern.test(str);
-  }
-  if(!checkString(openai_api_key)) {
-    console.log(openai_api_key)
-    throw new Error('OpenAI API Key Format Error')
-  }
 
   delete payload.api_key
 
-  const res = await fetch("https://api.openai.com/v1/completions", {
+  const openai_url = process.env.OPENAI_URL || "openai.com"
+  const res = await fetch(`https://api.${openai_url}/v1/chat/completions`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
@@ -71,7 +67,7 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
           }
           try {
             const json = JSON.parse(data);
-            const text = json.choices[0].text;
+            const text = json.choices[0].delta?.content || "";
             if (counter < 2 && (text.match(/\n/) || []).length) {
               // this is a prefix character (i.e., "\n\n"), do nothing
               return;
