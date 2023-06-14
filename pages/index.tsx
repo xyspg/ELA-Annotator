@@ -23,7 +23,6 @@ const Home: NextPage = () => {
   const [api_key, setAPIKey] = useState("")
   const [generatedChat, setGeneratedChat] = useState<String>("");
 
-  console.log("Streamed response: ", generatedChat);
 
   const prompt =
     form === 'paragraphForm'?
